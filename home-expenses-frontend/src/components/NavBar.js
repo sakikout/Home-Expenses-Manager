@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStorage } from "../components/context/StorageProvider"
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,7 +9,7 @@ function CustomNavBar(){
     return (
     <Navbar className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="/home">Home Expenses Manager</Navbar.Brand>
+        <Navbar.Brand>Home Expenses Manager</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>

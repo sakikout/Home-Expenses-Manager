@@ -17,6 +17,7 @@ function Pessoas(){
     const { hasClicked, setHasClicked } = useState(false);
   
     const [formPessoa, setFormPessoa] = useState({
+    id: 0,
       nome: 'John',
       idade: 10,
     });
@@ -44,6 +45,7 @@ function Pessoas(){
   
     const clearForm = () => {
         setFormPessoa({
+        id: 0,
         nome: 'John',
         idade: 10
       });
@@ -54,6 +56,7 @@ function Pessoas(){
       event.preventDefault();
   
         const data = {
+            Id: formPessoa.id,
             Nome: formPessoa.nome,
             Idade: parseInt(formPessoa.idade),
             UsuarioId: login
@@ -100,7 +103,14 @@ function Pessoas(){
             { hasClicked === true ?
               <Form onSubmit={handleSubmit}>
                 <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col} controlId="formGridId">
+                    <Form.Label>ID</Form.Label>
+                    <Form.Control 
+                        value={formPessoa.id}
+                        onChange={handleInputChange}
+                        required/>
+                </Form.Group>
+                <Form.Group as={Col} controlId="formGridNome">
                     <Form.Label>Nome</Form.Label>
                     <Form.Control 
                         value={formPessoa.nome}
@@ -108,7 +118,7 @@ function Pessoas(){
                         required/>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Group as={Col} controlId="formGridIdade">
                     <Form.Label>Idade</Form.Label>
                     <Form.Control 
                         value={formPessoa.idade} 

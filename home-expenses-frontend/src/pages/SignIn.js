@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import '../App.css';
 import axios from 'axios';
-import logo from "../img/logo.png"
 
 const URL_API = "http://localhost:5001/api" 
 
@@ -58,8 +57,9 @@ function SignIn(){
       })
       .then(response => {
         console.log('Resposta do servidor:', response.data);
-        window.alert("Usuário Criado!");
+        window.alert("Usuário Criado! Faça o login para entrar no sistema.");
         clearForm();
+        navigate("/",  { replace: false });
       })
       .catch(error => {
         console.error('Erro ao enviar dados:', error);
@@ -118,6 +118,9 @@ function SignIn(){
       </Row>
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Cadastrar
+      </Button>
+      <Button variant="secondary" type="submit" onClick={navigate("/",  { replace: false })}>
+        Entrar
       </Button>
     </Form>
     );

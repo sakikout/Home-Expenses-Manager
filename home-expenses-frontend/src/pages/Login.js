@@ -7,7 +7,6 @@ import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
 import '../App.css';
 import axios from 'axios';
-import logo from "../img/logo.png"
 
 const URL_API = "http://localhost:5001/api"
 
