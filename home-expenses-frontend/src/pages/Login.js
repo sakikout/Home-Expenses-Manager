@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const URL_API = "http://localhost:5001/api"
 
-function Login({navigation}){
+function Login(){
     const navigate = useNavigate();
     const { login } = useStorage();
     const [email, setEmail] = useState("");
