@@ -16,7 +16,7 @@ namespace ExpensesControlAPI.Controllers
     [Authorize]
     public class TotaisPessoaController : ControllerBase
     {
-        [HttpGet("totais")]
+        [HttpGet]
         public async Task<IActionResult> GetTotais()
         {
             var usuarioId = User.FindFirst(ClaimTypes.Email)?.Value;
