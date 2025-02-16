@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
-import Stack from 'react-bootstrap/Stack';
+import { Form, Col, Row, Button, Stack} from 'react-bootstrap';
 import { useStorage } from "../components/context/StorageProvider"
 import '../App.css';
 import axios from 'axios';

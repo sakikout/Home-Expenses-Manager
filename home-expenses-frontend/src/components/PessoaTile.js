@@ -1,6 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Badge from 'react-bootstrap/Badge';
+import { Card, Badge} from 'react-bootstrap';
 import axios from 'axios';
 import '../App.css';
 

@@ -1,9 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useStorage } from "../components/context/StorageProvider"
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Container, Row, Col } from 'react-bootstrap';
 import Pessoas from './Pessoas';
 import Transacoes from './Transacoes';
 import CustomNavBar from '../components/NavBar';

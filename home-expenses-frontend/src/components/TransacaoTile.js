@@ -1,7 +1,5 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Badge from 'react-bootstrap/Badge';
-import ListGroup from 'react-bootstrap/ListGroup';
+import { Card, Badge, ListGroup} from 'react-bootstrap';
 import axios from 'axios';
 import '../App.css';
 

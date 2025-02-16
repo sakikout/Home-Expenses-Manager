@@ -1,7 +1,6 @@
 import React from 'react';
 import { useStorage } from "../components/context/StorageProvider"
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import { Container, Navbar } from 'react-bootstrap';
 
 function CustomNavBar(){
     const { logout } = useStorage();
