@@ -5,6 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Pessoas from './Pessoas';
 import Transacoes from './Transacoes';
 import CustomNavBar from '../components/NavBar';
+import TotaisTransacoes from './Totais';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const Home = () => {
           </Col>
 
           <Col>
-            
+            <TotaisTransacoes></TotaisTransacoes>
           </Col>
           </Row>
         : navigate("/")}
