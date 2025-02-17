@@ -54,6 +54,9 @@ function Login(){
           placeholder="exemplo@email.com" 
           onChange={(e => setEmail(e.target.value))}
           required/>
+        <Form.Control.Feedback type="invalid">
+          Informe seu e-mail.
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group as={Col} controlId="formGridPassword">
@@ -64,6 +67,9 @@ function Login(){
           placeholder="Digite sua senha." 
           onChange={(e => setSenha(e.target.value))}
           required/>
+        <Form.Control.Feedback type="invalid">
+           Informe sua senha.
+         </Form.Control.Feedback>
       </Form.Group>
     </Row>
     <div className="d-flex gap-2 mt-2 mb-3">

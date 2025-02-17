@@ -131,6 +131,9 @@ function Pessoas(){
                         value={formPessoa.id}
                         onChange={handleInputChange}
                         required/>
+                <Form.Control.Feedback type="invalid">
+                  A pessoa precisa ter um id.
+                </Form.Control.Feedback>
                 </Form.Group>
                 <Form.Group as={Col} controlId="formGridNome">
                     <Form.Label>Nome</Form.Label>
@@ -139,6 +142,9 @@ function Pessoas(){
                         value={formPessoa.nome}
                         onChange={handleInputChange}
                         required/>
+                 <Form.Control.Feedback type="invalid">
+                  É preciso ter um nome.
+                </Form.Control.Feedback>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridIdade">
@@ -148,6 +154,9 @@ function Pessoas(){
                         value={formPessoa.idade} 
                         onChange={handleInputChange}
                         required/>
+                <Form.Control.Feedback type="invalid">
+                  Informe a idade.
+                </Form.Control.Feedback>
                 </Form.Group>
                 </Row>
             <div className="d-flex gap-2 mt-2 mb-3">

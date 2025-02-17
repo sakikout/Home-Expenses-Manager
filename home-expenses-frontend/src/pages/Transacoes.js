@@ -151,6 +151,7 @@ function Transacoes(){
                         aria-label="Nome da transação"
                         aria-describedby="basic-addon2"
                         onChange={handleInputChange}
+                        required
                     />
                 </InputGroup>
                 <InputGroup className="mb-3">
@@ -159,7 +160,8 @@ function Transacoes(){
                     placeholder= 'Detalhes da Transação'
                     as="textarea" 
                     aria-label="Descrição"
-                    onChange={handleInputChange}/>
+                    onChange={handleInputChange}
+                    required/>
                 </InputGroup>
                 <InputGroup className="mb-3">
                     <InputGroup.Text>R$</InputGroup.Text>
@@ -167,14 +169,16 @@ function Transacoes(){
                         name = "valor"
                         aria-label="Amount" 
                         placeholder='Valor'
-                        onChange={handleInputChange}/>
+                        onChange={handleInputChange}
+                        required/>
                 </InputGroup>
                 <div className="mb-3">
                   <FloatingLabel controlId="floatingSelectTipo" label="Tipo">
                     <Form.Select 
                     name = "tipo"
                     aria-label="Floating label select"
-                    onChange={handleInputChange}>
+                    onChange={handleInputChange}
+                    required>
                         <option>Selecione um tipo</option>
                         <option
                                 value=  "Despesa"
@@ -188,7 +192,8 @@ function Transacoes(){
                 <FloatingLabel controlId="floatingSelectPessoa" label="Pessoa">
                     <Form.Select 
                     aria-label="Floating label select"
-                    onChange={handleInputChange}>
+                    onChange={handleInputChange}
+                    required>
                         <option>Selecione uma pessoa</option>
                         { pessoas.map((pessoa) => (
                         <option name = "pessoaId"
