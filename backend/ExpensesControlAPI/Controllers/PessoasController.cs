@@ -22,7 +22,7 @@ namespace ExpensesControlAPI.Controllers
             var usuarioId = User.FindFirst(ClaimTypes.Email)?.Value;
             if (usuarioId == null) return Unauthorized();
         
-            pessoa.Id = Database.Pessoas.Count + 1;
+            pessoa.Id = pessoa.Id + 1;
             pessoa.UsuarioId = usuarioId;
             Database.Pessoas.Add(pessoa);
             return Created($"api/pessoas/{pessoa.Id}", pessoa);

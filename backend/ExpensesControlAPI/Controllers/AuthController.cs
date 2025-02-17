@@ -26,6 +26,11 @@ namespace ExpensesControlAPI.Controllers
         if (Database.Usuarios.Any(u => u.Email == usuario.Email)) return BadRequest("Email já cadastrado");
         
         Database.Usuarios.Add(usuario);
+
+        var userCheck = Database.Usuarios.FirstOrDefault(u => u.Email == usuario.Email);
+        if (userCheck == null)
+            return StatusCode(500, "Erro ao registrar usuário.");
+
         return Ok("Usuário registrado com sucesso");
     }
 

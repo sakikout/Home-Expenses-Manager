@@ -14,7 +14,7 @@ namespace ExpensesControlAPI.Models
 
         public string Tipo { get; set; } = "";
 
-        public int PessoaId { get; set; };
+        public int PessoaId { get; set; }
 
         public string NomePessoa {get; set;} = "";
         

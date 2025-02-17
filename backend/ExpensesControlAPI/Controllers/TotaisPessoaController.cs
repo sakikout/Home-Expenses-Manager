@@ -26,19 +26,19 @@ namespace ExpensesControlAPI.Controllers
             {
                 PessoaId = p.Id,
                 NomePessoa = p.Nome,
-                TotalReceitas = p.Transacoes.Where(t => t.Tipo == "Receita").Sum(t => t.Valor),
-                TotalDespesas = p.Transacoes.Where(t => t.Tipo == "Despesa").Sum(t => t.Valor)
+                TotalReceitas = Database.Transacoes.Where(t => t.Tipo == "Receita" && t.PessoaId == p.Id).Sum(t => t.Valor),
+                TotalDespesas = Database.Transacoes.Where(t => t.Tipo == "Despesa" && t.PessoaId == p.Id).Sum(t => t.Valor)
             })
             .ToList();
 
-        var totalGeral = new
-        {
-            TotalReceitas = totais.Sum(t => t.TotalReceitas),
-            TotalDespesas = totais.Sum(t => t.TotalDespesas),
-            SaldoLiquido = totais.Sum(t => t.Saldo)
-        };
+            var totalGeral = new
+            {
+                TotalReceitas = totais.Sum(t => t.TotalReceitas),
+                TotalDespesas = totais.Sum(t => t.TotalDespesas),
+                SaldoLiquido = totais.Sum(t => t.Saldo)
+            };
 
-        return Ok(
+            return Ok(
                 new { totais, totalGeral }
             );
         }

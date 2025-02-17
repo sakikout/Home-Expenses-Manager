@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStorage } from "../components/context/StorageProvider"
-import { Container, Navbar } from 'react-bootstrap';
+import { Container, Navbar, Button } from 'react-bootstrap';
 
 function CustomNavBar(){
     const { logout } = useStorage();
@@ -12,9 +12,9 @@ function CustomNavBar(){
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-          <span onClick={logout}>
+          <Button variant="outline-danger" onClick={logout}>
             Sair
-            </span>
+            </Button>
           </Navbar.Text>
         </Navbar.Collapse>
       </Container>
