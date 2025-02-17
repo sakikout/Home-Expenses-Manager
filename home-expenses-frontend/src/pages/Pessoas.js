@@ -32,7 +32,7 @@ function Pessoas(){
             });
 
           console.log(user.token);
-    }, [pessoas]);
+    }, []);
       
     const handleInputChange = (event) => {
       const { name } = event.target;

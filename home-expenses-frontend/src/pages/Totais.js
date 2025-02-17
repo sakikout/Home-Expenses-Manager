@@ -17,7 +17,7 @@ function TotaisTransacoes(){
           'Authorization': `Bearer ${user.token}`
         }})
         .then(response => {
-            console.log(response.data)
+            // console.log(response.data)
             setTotais(response.data.totais);
             setTotalGeral(response.data.totalGeral);
           })

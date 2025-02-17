@@ -45,7 +45,7 @@ function Transacoes(){
                 console.error('Erro ao buscar transacoes:', error);
             });
 
-    }, [transacoes]);
+    }, []);
       
     const handleInputChange = (event) => {
         const { name } = event.target;
@@ -191,6 +191,7 @@ function Transacoes(){
                 </div>
                 <FloatingLabel controlId="floatingSelectPessoa" label="Pessoa">
                     <Form.Select 
+                    name = "pessoaId"
                     aria-label="Floating label select"
                     onChange={handleInputChange}
                     required>
