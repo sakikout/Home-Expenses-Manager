@@ -4,7 +4,7 @@ namespace ExpensesControlAPI.Models
 {
     public class Transacao
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Nome { get; set; } = "";
         

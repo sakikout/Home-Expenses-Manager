@@ -19,9 +19,11 @@ namespace ExpensesControlAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetTotais()
         {
+            // verify if the user is logged in
             var usuarioId = User.FindFirst(ClaimTypes.Email)?.Value;
             if (usuarioId == null) return Unauthorized();
 
+            // get all the persons and sum their expenses and incomes
             var totais = Database.Pessoas.Select(p => new TotaisPessoa
             {
                 PessoaId = p.Id,
@@ -31,6 +33,7 @@ namespace ExpensesControlAPI.Controllers
             })
             .ToList();
 
+            // get the totals of all persons and sum again to get a general overview of expenses and income
             var totalGeral = new
             {
                 TotalReceitas = totais.Sum(t => t.TotalReceitas),
@@ -38,6 +41,7 @@ namespace ExpensesControlAPI.Controllers
                 SaldoLiquido = totais.Sum(t => t.Saldo)
             };
 
+            // return the total of each person and the general overview
             return Ok(
                 new { totais, totalGeral }
             );

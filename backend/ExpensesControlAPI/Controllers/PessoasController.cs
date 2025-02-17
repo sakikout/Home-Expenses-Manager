@@ -19,11 +19,17 @@ namespace ExpensesControlAPI.Controllers
         [HttpPost]
         public IActionResult CriarPessoa([FromBody] Pessoa pessoa)
         {
+            // verify if the user is logged in
             var usuarioId = User.FindFirst(ClaimTypes.Email)?.Value;
             if (usuarioId == null) return Unauthorized();
-        
-            pessoa.Id = pessoa.Id + 1;
+
+            // check if already exists a person in user's database with the given id
+            if (Database.Pessoas.Any(p => p.Id == pessoa.Id && p.usuarioId == usuarioId)) return Conflict("Já existe uma pessoa com esse ID.");
+
+            // define the user for the person
             pessoa.UsuarioId = usuarioId;
+
+            // add person to database
             Database.Pessoas.Add(pessoa);
             return Created($"api/pessoas/{pessoa.Id}", pessoa);
         }
@@ -31,16 +37,18 @@ namespace ExpensesControlAPI.Controllers
         [HttpGet]
         public IActionResult ListarPessoas()
         {
+            // verify if the user is logged in
             var usuarioId = User.FindFirst(ClaimTypes.Email)?.Value;
             if (usuarioId == null) return Unauthorized();
-        
+
+            // return users' persons
             return Ok(Database.Pessoas.Where(p => p.UsuarioId == usuarioId));
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeletarPessoa(int id)
         {   
-            // verify if the user is logged
+            // verify if the user is logged in
             var usuarioId = User.FindFirst(ClaimTypes.Email)?.Value;
             if (usuarioId == null) return Unauthorized();
 
