@@ -23,11 +23,11 @@ namespace ExpensesControlAPI.Controllers
             var usuarioId = User.FindFirst(ClaimTypes.Email)?.Value;
             if (usuarioId == null) return Unauthorized();
 
-            // check if already exists a person in user's database with the given id
-            if (Database.Pessoas.Any(p => p.Id == pessoa.Id && p.usuarioId == usuarioId)) return Conflict("Já existe uma pessoa com esse ID.");
-
             // define the user for the person
             pessoa.UsuarioId = usuarioId;
+
+            // check if already exists a person in user's database with the given id
+            if (Database.Pessoas.Any(p => p.Id == pessoa.Id && p.UsuarioId == usuarioId)) return Conflict("Já existe uma pessoa com esse ID.");
 
             // add person to database
             Database.Pessoas.Add(pessoa);

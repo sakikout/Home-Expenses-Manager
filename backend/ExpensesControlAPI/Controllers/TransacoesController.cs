@@ -53,7 +53,7 @@ namespace ExpensesControlAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult DeletarTransacao(int id)
+        public IActionResult DeletarTransacao(String id)
         {
             // verify if the user is logged in
             var usuarioId = User.FindFirst(ClaimTypes.Email)?.Value;
