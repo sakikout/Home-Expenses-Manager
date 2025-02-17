@@ -45,7 +45,7 @@ function Transacoes(){
                 console.error('Erro ao buscar transacoes:', error);
             });
 
-    }, []);
+    }, [pessoas, transacoes]);
       
     const handleInputChange = (event) => {
         const { name } = event.target;
@@ -56,7 +56,7 @@ function Transacoes(){
         }));
         
         if (name === "pessoaId") {
-          const pessoa = pessoas.find(p => p.id === value);
+          var pessoa = pessoas.find(p => p.id == value);
           setPessoaSelecionada(pessoa ? pessoa.nome : " ");
         }
     };
